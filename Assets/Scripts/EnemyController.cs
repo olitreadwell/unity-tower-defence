@@ -18,10 +18,10 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveTowards();
+        MoveEnemy();
     }
 
-    void MoveTowards()
+    void MoveEnemy()
     {
         // Rotate the enemy towards the target
         transform.LookAt(target);
