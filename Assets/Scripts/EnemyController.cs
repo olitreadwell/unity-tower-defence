@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class EnemyController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        MoveTowards();
+    }
+
+    void MoveTowards()
     {
         // Rotate the enemy towards the target
         transform.LookAt(target);
