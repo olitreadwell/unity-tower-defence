@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody rb;
 
     [Header("Projectile Attributes")]
-    public float projectileSpeed = 20f;
+    public float projectileSpeed = 1f;
     public float projectileDamage = 10f;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        Debug.Log("Projectile hit: " + other.name);
         Destroy(gameObject);
 
     }
