@@ -50,6 +50,7 @@ MonoBehaviour:
   rb: {fileID: 3945023481657762110}
   projectileSpeed: 5
   projectileDamage: 10
+  shotEffectPrefab: {fileID: 8350469469667284822, guid: d1dcb2ade17764ea6ad6a429453852d0, type: 3}
 --- !u!135 &63927057540619468
 SphereCollider:
   m_ObjectHideFlags: 0

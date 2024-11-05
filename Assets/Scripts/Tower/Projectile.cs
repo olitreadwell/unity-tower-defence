@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     public float projectileSpeed = 2f;
     public float projectileDamage = 10f;
 
+    public GameObject shotEffectPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Debug.Log("Projectile hit: " + other.name);
+        GameObject newShotEffect = Instantiate(shotEffectPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
 
     }

@@ -17,6 +17,10 @@ public class ProjectileTower : MonoBehaviour
 
     public Transform launcherModel;
 
+    public GameObject shotEffectPrefab;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +130,7 @@ public class ProjectileTower : MonoBehaviour
 
         // Create a new projectile
         GameObject newProjectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+        GameObject newShotEffect = Instantiate(shotEffectPrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
 
         float shortestDistance = targetTower.attackRange;
         foreach (EnemyController enemy in targetTower.enemiesInRange)
