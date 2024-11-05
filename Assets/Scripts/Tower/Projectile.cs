@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody rb;
 
     [Header("Projectile Attributes")]
-    public float projectileSpeed = 1f;
+    public float projectileSpeed = 2f;
     public float projectileDamage = 10f;
 
     // Start is called before the first frame update
