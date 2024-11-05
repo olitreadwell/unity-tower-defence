@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14216fc47bcf040eaa93085c00d0692e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMoveSpeed: 0.5
-  timeBetweenAttacks: 0.5
-  damagePerAttack: 1
+  enemyMoveSpeed: 5
+  timeBetweenAttacks: 2
+  damagePerAttack: 5
 --- !u!1001 &2520120359779419869
 PrefabInstance:
   m_ObjectHideFlags: 0
