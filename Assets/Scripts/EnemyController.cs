@@ -3,24 +3,25 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
+    [Header("Movement Settings")]
     public float enemyMoveSpeed = 5f;
 
-
+    [Header("Target GameObjects")]
     private Path path;
-    private int currentPointIndex;
-
-    private bool reachedEnd = false;
-
-    public float timeBetweenAttacks, damagePerAttack;
-    private float attackCounter;
-
     private Castle castle;
+    private int currentPointIndex;
+    private bool hasReachedEnd = false;
+
+    [Header("Attack Settings")]
+    public float timeBetweenAttacks, damagePerAttack;
+    private float attackTimer;
+
+    private int targetAttackPointIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         if (path == null) {
-
             path = FindObjectOfType<Path>();
         }
 
@@ -29,26 +30,23 @@ public class EnemyController : MonoBehaviour
             castle = FindObjectOfType<Castle>();
         }
 
-        attackCounter = timeBetweenAttacks;
+        attackTimer = timeBetweenAttacks;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(reachedEnd == false)
+        if(hasReachedEnd == false)
         {
             MoveEnemy();
             CheckDistanceToPathPoint();
         } else
         {
-            attackCounter -= Time.deltaTime;
+            transform.LookAt(castle.attackPoints[targetAttackPointIndex].position);
 
-            if(attackCounter <= 0)
-            {
-                castle.TakeDamage(damagePerAttack);
-                attackCounter = timeBetweenAttacks;
-            }
-
+            transform.position = Vector3.MoveTowards(transform.position, castle.attackPoints[targetAttackPointIndex].position, enemyMoveSpeed * Time.deltaTime);
+            
+            HandleAttack();
         }
     }
 
@@ -72,7 +70,9 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-                reachedEnd = true;
+                hasReachedEnd = true;
+
+                targetAttackPointIndex = Random.Range(0, castle.attackPoints.Length);
             }
         }
     }
@@ -81,5 +81,19 @@ public class EnemyController : MonoBehaviour
     {
         castle = newCastle;
         path = newPath;
+    }
+
+    private void HandleAttack()
+    {
+        // before attacking look at the castle
+        transform.LookAt(castle.transform);
+        
+        attackTimer -= Time.deltaTime;
+
+        if(attackTimer <= 0)
+        {
+            castle.TakeDamage(damagePerAttack);
+            attackTimer = timeBetweenAttacks;
+        }
     }
 }
