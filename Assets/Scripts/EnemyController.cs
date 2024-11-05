@@ -15,10 +15,19 @@ public class EnemyController : MonoBehaviour
 
     private bool reachedEnd = false;
 
+    public float timeBetweenAttacks, damagePerAttack;
+    private float attackCounter;
+
+    private Castle theCastle;
+
     // Start is called before the first frame update
     void Start()
     {
         thePath = FindObjectOfType<Path>();
+
+        theCastle = FindObjectOfType<Castle>();
+
+        attackCounter = timeBetweenAttacks;
     }
 
     // Update is called once per frame
@@ -28,6 +37,16 @@ public class EnemyController : MonoBehaviour
         {
             MoveEnemy();
             CheckDistanceToPathPoint();
+        } else
+        {
+            attackCounter -= Time.deltaTime;
+
+            if(attackCounter <= 0)
+            {
+                theCastle.TakeDamage(damagePerAttack);
+                attackCounter = timeBetweenAttacks;
+            }
+
         }
     }
 
