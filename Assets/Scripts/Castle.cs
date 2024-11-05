@@ -6,9 +6,12 @@ using UnityEngine.UIElements;
 public class Castle : MonoBehaviour
 {
     
+    [Header("Health")]
     public float totalHealth = 100;
     private float currentHealth;
     private ProgressBar healthProgressBar;
+
+    public Transform[] attackPoints;
 
     // Start is called before the first frame update
     void Start()
