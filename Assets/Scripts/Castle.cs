@@ -6,6 +6,8 @@ public class Castle : MonoBehaviour
     
     [Header("Health")]
     public float totalHealth = 100;
+   
+    [HideInInspector]
     public float currentHealth;
     private ProgressBar healthProgressBar;
 
