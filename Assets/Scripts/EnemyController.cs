@@ -56,24 +56,19 @@ public class EnemyController : MonoBehaviour
 
         if(castle.currentHealth <= 0)
         {
-
             Debug.Log("Castle is destroyed");
             return;
         }
 
-        if(castle.currentHealth > 0)
+        if(hasReachedEnd == true)
         {
-            if(hasReachedEnd == false)
-            {
-                MoveAlongPath();
-                CheckDistanceToPathPoint();
-            } else
-            {
-                MoveToAttackPoint();
-                
-                Attack();
-            }
+            MoveToAttackPoint();
+            Attack();
         }
+        
+       
+        MoveAlongPath();
+        CheckDistanceToPathPoint();
     }
 
 
@@ -87,7 +82,6 @@ public class EnemyController : MonoBehaviour
 
     void MoveAlongPath()
     {
-
         // Rotate the enemy towards the target
         transform.LookAt(path.points[currentPointIndex].position);
 
@@ -97,23 +91,32 @@ public class EnemyController : MonoBehaviour
 
     void CheckDistanceToPathPoint()
     {
-        if (Vector3.Distance(transform.position, path.points[currentPointIndex].position) < 0.1f)
+        var distance = Vector3.Distance(transform.position, path.points[currentPointIndex].position);
+        if (distance > 0.1f)
         {
-            if (currentPointIndex < path.points.Length - 1)
-            {
-                currentPointIndex++;
-            }
-            else
-            {
-                hasReachedEnd = true;
-
-                targetAttackPointIndex = Random.Range(0, castle.attackPoints.Length);
-            }
+            Debug.Log("Moving to Path Point Index: " + currentPointIndex);
+            return;
         }
+
+        if (currentPointIndex >= path.points.Length - 1)
+        {
+            Debug.Log("Reached the end of the path");
+            hasReachedEnd = true;
+
+            return;
+        }
+        
+        
+        // Move to the next point in the path
+        currentPointIndex++;
+        
     }
 
     public void Setup(Castle newCastle, Path newPath)
     {
+        Debug.Log("Setting up enemy");
+
+        Debug.Log("Assigning castle and path to enemy");
         castle = newCastle;
         path = newPath;
     }
@@ -125,10 +128,14 @@ public class EnemyController : MonoBehaviour
         
         attackTimer -= Time.deltaTime;
 
-        if(attackTimer <= 0)
+        if(attackTimer > 0)
         {
-            castle.TakeDamage(damagePerAttack);
-            attackTimer = timeBetweenAttacks;
+            Debug.Log("Waiting to attack");
+            return;
         }
+        
+        castle.TakeDamage(damagePerAttack);
+        attackTimer = timeBetweenAttacks;
+        
     }
 }
