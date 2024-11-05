@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileTower : MonoBehaviour
 {
+    private Quaternion targetRotation;
 
     private BaseTower targetTower;
 
@@ -83,13 +84,7 @@ public class ProjectileTower : MonoBehaviour
     }
     private void ShootProjectile()
     {
-        // count down the time until we can shoot again
         shotTimer -= Time.deltaTime;
-        // if (shotTimer > 0)
-        // {
-        //     Debug.Log("Not time to shoot yet");
-        //     return;
-        // }
 
         // Check if it is time to shoot
         if (shotTimer > 0)
@@ -157,6 +152,8 @@ public class ProjectileTower : MonoBehaviour
             return;
         }
 
-        launcherModel.rotation = Quaternion.LookRotation(target.position - transform.position);
+        Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
+        launcherModel.rotation = Quaternion.Slerp(launcherModel.rotation, targetRotation, Time.deltaTime * 100f);
+        // Quaternion.LookRotation(target.position - transform.position);
     }
 }

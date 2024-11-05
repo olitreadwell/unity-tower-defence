@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3945023481657762110}
-  projectileSpeed: 3
+  projectileSpeed: 5
   projectileDamage: 10
 --- !u!135 &63927057540619468
 SphereCollider:
