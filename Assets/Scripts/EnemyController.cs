@@ -41,7 +41,10 @@ public class EnemyController : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, thePath.points[currentPoint].position) < 0.1f)
         {
-            currentPoint = currentPoint + 1;
+            if (currentPoint < thePath.points.Length - 1)
+            {
+                currentPoint++;
+            }
         }
     }
 }
