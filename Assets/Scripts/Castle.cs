@@ -27,6 +27,8 @@ public class Castle : MonoBehaviour
         // Check if the castle has zero health
         if(currentHealth <= 0)
         {
+            currentHealth = 0;
+            
             // Destroy the castle
             gameObject.SetActive(false);
         }
