@@ -11,6 +11,8 @@ public class Castle : MonoBehaviour
     public float currentHealth;
     private ProgressBar healthProgressBar;
 
+    private UIDocument uiDocument;
+
     public Transform[] attackPoints;
 
     // Start is called before the first frame update
@@ -18,7 +20,7 @@ public class Castle : MonoBehaviour
     {
         currentHealth = totalHealth;
 
-        var uiDocument = GetComponentInChildren<UIDocument>();
+        UIDocument uiDocument = GetComponentInChildren<UIDocument>();
         if (uiDocument == null)
         {
             Debug.Log("UI Document not found");
