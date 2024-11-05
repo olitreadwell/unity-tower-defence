@@ -1,16 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
 
-    public float enemyMoveSpeed;
+    public float enemyMoveSpeed = 5f;
 
 
-    private Path thePath;
+    private Path path;
     private int currentPoint;
 
     private bool reachedEnd = false;
@@ -18,14 +14,14 @@ public class EnemyController : MonoBehaviour
     public float timeBetweenAttacks, damagePerAttack;
     private float attackCounter;
 
-    private Castle theCastle;
+    private Castle castle;
 
     // Start is called before the first frame update
     void Start()
     {
-        thePath = FindObjectOfType<Path>();
+        path = FindObjectOfType<Path>();
 
-        theCastle = FindObjectOfType<Castle>();
+        castle = FindObjectOfType<Castle>();
 
         attackCounter = timeBetweenAttacks;
     }
@@ -43,7 +39,7 @@ public class EnemyController : MonoBehaviour
 
             if(attackCounter <= 0)
             {
-                theCastle.TakeDamage(damagePerAttack);
+                castle.TakeDamage(damagePerAttack);
                 attackCounter = timeBetweenAttacks;
             }
 
@@ -54,18 +50,18 @@ public class EnemyController : MonoBehaviour
     {
 
         // Rotate the enemy towards the target
-        transform.LookAt(thePath.points[currentPoint].position);
+        transform.LookAt(path.points[currentPoint].position);
 
         
         //  Move the enemy towards the target
-        transform.position = Vector3.MoveTowards(transform.position, thePath.points[currentPoint].position, enemyMoveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, path.points[currentPoint].position, enemyMoveSpeed * Time.deltaTime);
     }
 
     void CheckDistanceToPathPoint()
     {
-        if (Vector3.Distance(transform.position, thePath.points[currentPoint].position) < 0.1f)
+        if (Vector3.Distance(transform.position, path.points[currentPoint].position) < 0.1f)
         {
-            if (currentPoint < thePath.points.Length - 1)
+            if (currentPoint < path.points.Length - 1)
             {
                 currentPoint++;
             }
