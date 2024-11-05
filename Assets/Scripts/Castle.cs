@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class Castle : MonoBehaviour
 {
+    
     public float totalHealth = 100;
     private float currentHealth;
     private ProgressBar healthProgressBar;
