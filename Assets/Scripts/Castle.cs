@@ -17,6 +17,12 @@ public class Castle : MonoBehaviour
         currentHealth = totalHealth;
 
         var uiDocument = GetComponentInChildren<UIDocument>();
+        if (uiDocument == null)
+        {
+            Debug.Log("UI Document not found");
+            return;
+        }
+        
         if(uiDocument != null)
         {
             Debug.Log("Found UI Document");
