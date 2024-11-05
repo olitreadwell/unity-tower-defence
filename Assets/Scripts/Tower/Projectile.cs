@@ -19,10 +19,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // check if the projectile hit an enemy
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyHealthController>().TakeDamage(projectileDamage);
+        }
+
         // Debug.Log("Projectile hit: " + other.name);
         GameObject newShotEffect = Instantiate(shotEffectPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
-
     }
 
     private void OnBecameInvisible()
