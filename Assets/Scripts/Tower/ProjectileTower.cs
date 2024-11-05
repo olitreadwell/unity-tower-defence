@@ -14,6 +14,8 @@ public class ProjectileTower : MonoBehaviour
 
     private Transform target;
 
+    public Transform launcherModel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +117,9 @@ public class ProjectileTower : MonoBehaviour
         // Reset the shot timer
         shotTimer = intervalBetweenShots;
 
+        // Aim at the target
+        AimAtClosestEnemy();
+
         projectileSpawnPoint.LookAt(target);
 
         // Create a new projectile
@@ -142,6 +147,16 @@ public class ProjectileTower : MonoBehaviour
                 target = enemy.transform;
             }
         }
+    }
 
+    private void AimAtClosestEnemy()
+    {
+        if (target == null)
+        {
+            Debug.Log("No target found");
+            return;
+        }
+
+        launcherModel.rotation = Quaternion.LookRotation(target.position - transform.position);
     }
 }

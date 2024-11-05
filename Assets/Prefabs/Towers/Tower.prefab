@@ -47,12 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e89f26d0c9641f3a89c1c0c88513a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
+  attackRange: 4
   attackDamage: 10
   attackSpeed: 1
   targetLayer:
     serializedVersion: 2
     m_Bits: 8
+  enemiesInRange: []
   targetCheckRate: 1
   currentTarget: {fileID: 0}
 --- !u!114 &7959523304173914837
@@ -70,6 +71,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 810547017109510864, guid: 3f072d24a3d49448b958c48e930c8d94, type: 3}
   projectileSpawnPoint: {fileID: 2216440895976964096}
   intervalBetweenShots: 0.5
+  launcherModel: {fileID: 0}
 --- !u!1 &1849420588567102829
 GameObject:
   m_ObjectHideFlags: 0
