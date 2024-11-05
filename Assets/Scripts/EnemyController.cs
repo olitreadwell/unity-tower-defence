@@ -36,21 +36,56 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hasReachedEnd == false)
+        if(path == null)
         {
-            MoveEnemy();
-            CheckDistanceToPathPoint();
-        } else
-        {
-            transform.LookAt(castle.attackPoints[targetAttackPointIndex].position);
+            Debug.LogError("Path assigned to EnemyController");
+            return;
+        }
 
-            transform.position = Vector3.MoveTowards(transform.position, castle.attackPoints[targetAttackPointIndex].position, enemyMoveSpeed * Time.deltaTime);
-            
-            HandleAttack();
+        if(castle == null)
+        {
+            Debug.LogError("Castle assigned to EnemyController");
+            return;
+        }
+
+        if(path.points.Length == 0)
+        {
+            Debug.LogError("Path has no points assigned");
+            return;
+        }
+
+        if(castle.currentHealth <= 0)
+        {
+
+            Debug.Log("Castle is destroyed");
+            return;
+        }
+
+        if(castle.currentHealth > 0)
+        {
+            if(hasReachedEnd == false)
+            {
+                MoveAlongPath();
+                CheckDistanceToPathPoint();
+            } else
+            {
+                MoveToAttackPoint();
+                
+                Attack();
+            }
         }
     }
 
-    void MoveEnemy()
+
+
+    private void MoveToAttackPoint()
+    {
+        transform.LookAt(castle.attackPoints[targetAttackPointIndex].position);
+
+        transform.position = Vector3.MoveTowards(transform.position, castle.attackPoints[targetAttackPointIndex].position, enemyMoveSpeed * Time.deltaTime);
+    }
+
+    void MoveAlongPath()
     {
 
         // Rotate the enemy towards the target
@@ -83,7 +118,7 @@ public class EnemyController : MonoBehaviour
         path = newPath;
     }
 
-    private void HandleAttack()
+    private void Attack()
     {
         // before attacking look at the castle
         transform.LookAt(castle.transform);
