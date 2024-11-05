@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Projectile hit: " + other.name);
+        // Debug.Log("Projectile hit: " + other.name);
         Destroy(gameObject);
 
     }

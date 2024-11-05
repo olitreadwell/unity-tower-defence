@@ -23,12 +23,12 @@ public class SimpleEnemySpawner : MonoBehaviour
         
         if (targetCastle == null)
         {
-            Debug.LogError("Target Castle is not assigned in SimpleEnemySpawner.");
+            // Debug.LogError("Target Castle is not assigned in SimpleEnemySpawner.");
         }
 
         if (targetPath == null)
         {
-            Debug.LogError("Target Path is not assigned in SimpleEnemySpawner.");
+            // Debug.LogError("Target Path is not assigned in SimpleEnemySpawner.");
         }
     }
 
@@ -37,19 +37,19 @@ public class SimpleEnemySpawner : MonoBehaviour
     {
         if (targetCastle == null)
         {
-            Debug.LogError("Target Castle is not assigned in SimpleEnemySpawner.");
+            // Debug.LogError("Target Castle is not assigned in SimpleEnemySpawner.");
             return; // Cannot proceed without references
         }
 
         if (targetCastle.currentHealth <= 0)
         {
-            Debug.Log("Castle is destroyed");
+            // Debug.Log("Castle is destroyed");
             return; // Cannot proceed if the castle is destroyed
         }
 
         if (targetPath == null)
         {
-            Debug.LogError("Target Path is not assigned in SimpleEnemySpawner.");
+            // Debug.LogError("Target Path is not assigned in SimpleEnemySpawner.");
             return; // Cannot proceed without references
         }
 
@@ -62,7 +62,7 @@ public class SimpleEnemySpawner : MonoBehaviour
             // Check if it is time to spawn an enemy
             if (spawnTimer > 0)
             {
-                Debug.Log("Waiting to spawn an enemy");
+                // Debug.Log("Waiting to spawn an enemy");
                 return; // Not time to spawn an enemy yet
             }
 
@@ -80,13 +80,13 @@ public class SimpleEnemySpawner : MonoBehaviour
     {
         if (enemyToSpawn == null)
         {
-            Debug.LogError("Enemy prefab is not assigned in SimpleEnemySpawner.");
+            // Debug.LogError("Enemy prefab is not assigned in SimpleEnemySpawner.");
             return;
         }
 
         if (spawnPoint == null)
         {
-            Debug.LogError("Spawn Point is not assigned in SimpleEnemySpawner.");
+            // Debug.LogError("Spawn Point is not assigned in SimpleEnemySpawner.");
             return;
         }
         

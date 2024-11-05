@@ -21,13 +21,13 @@ public class Castle : MonoBehaviour
         var uiDocument = GetComponentInChildren<UIDocument>();
         if (uiDocument == null)
         {
-            Debug.Log("UI Document not found");
+            // Debug.Log("UI Document not found");
             return;
         }
         
         if(uiDocument != null)
         {
-            Debug.Log("Found UI Document");
+            // Debug.Log("Found UI Document");
             
             var rootVisualElement = uiDocument.rootVisualElement;
 
@@ -35,15 +35,15 @@ public class Castle : MonoBehaviour
 
             if (healthProgressBar != null)
             {
-                Debug.Log("Found Health Progress Bar");
+                // Debug.Log("Found Health Progress Bar");
                 UpdateHealthDisplay();
             } else
             {
-                Debug.Log("Health Progress Bar not found");
+                // Debug.Log("Health Progress Bar not found");
             }
         } else
         {
-            Debug.Log("UI Document not found");
+            // Debug.Log("UI Document not found");
         }
     }
 
@@ -82,7 +82,7 @@ public class Castle : MonoBehaviour
 
             if (progressElement != null)
             {
-                Debug.Log("Found Progress Element");
+                // Debug.Log("Found Progress Element");
                 if (currentHealth <= (totalHealth * 0.3f))
                 {
                     progressElement.style.backgroundColor = new StyleColor(Color.red);
@@ -97,7 +97,7 @@ public class Castle : MonoBehaviour
                 }
             } else
             {
-                Debug.Log("Progress Element not found");
+                // Debug.Log("Progress Element not found");
             }
         }
     }

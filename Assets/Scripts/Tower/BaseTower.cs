@@ -14,7 +14,7 @@ public class BaseTower : MonoBehaviour
     [Header("Targeting")]
     public LayerMask targetLayer;
     private Collider[] targetsInRange;
-    private List<EnemyController> enemiesInRange = new List<EnemyController>();
+    public List<EnemyController> enemiesInRange = new List<EnemyController>();
     // last time we checked for new targets
     private float lastTargetCheck;
     // time between checking for new targets
@@ -37,7 +37,7 @@ public class BaseTower : MonoBehaviour
         lastTargetCheck -= Time.deltaTime;
         if (lastTargetCheck > 0)
         {
-            Debug.Log("Not time to check for new targets yet");
+            // Debug.Log("Not time to check for new targets yet");
             return;
         }
 
@@ -45,23 +45,25 @@ public class BaseTower : MonoBehaviour
         FindEnemiesInRange();
     }
 
-    private void FindTargets() {
-        targetsInRange = Physics.OverlapSphere(transform.position, attackRange, targetLayer);       
+    private void FindTargets()
+    {
+        targetsInRange = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
     }
 
-    private void FindEnemiesInRange() {
+    private void FindEnemiesInRange()
+    {
         enemiesInRange.Clear();
         foreach (Collider target in targetsInRange)
         {
             var enemy = target.GetComponent<EnemyController>();
             if (enemy == null)
             {
-                Debug.LogError("EnemyController not found on target");
+                // Debug.LogError("EnemyController not found on target");
                 return;
             }
             // if (enemy != null)
             // {
-                enemiesInRange.Add(enemy);
+            enemiesInRange.Add(enemy);
             // }
         }
     }
