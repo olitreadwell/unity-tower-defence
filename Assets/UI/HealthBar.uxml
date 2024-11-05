@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/HealthBar.uss?fileID=7433441132597879392&amp;guid=e8788a9bdc9564146911c8501bcc93cd&amp;type=3#HealthBar" />
+    <ui:ProgressBar value="100" title="Health" name="healthProgressBar" style="color: rgb(255, 255, 255); -unity-font-style: bold;" />
+</ui:UXML>

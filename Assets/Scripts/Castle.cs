@@ -7,7 +7,7 @@ public class Castle : MonoBehaviour
 {
     public float totalHealth = 100;
     private float currentHealth;
-    private Label healthValueLabel;
+    private ProgressBar healthProgressBar;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +21,15 @@ public class Castle : MonoBehaviour
             
             var rootVisualElement = uiDocument.rootVisualElement;
 
-            healthValueLabel = rootVisualElement.Q<Label>("healthValueLabel");
+            healthProgressBar = rootVisualElement.Q<ProgressBar>("healthProgressBar");
 
-            if (healthValueLabel != null)
+            if (healthProgressBar != null)
             {
-                Debug.Log("Found Health Value Label");
+                Debug.Log("Found Health Progress Bar");
                 UpdateHealthDisplay();
             } else
             {
-                Debug.Log("Health Value Label not found");
+                Debug.Log("Health Progress Bar not found");
             }
         } else
         {
@@ -64,9 +64,31 @@ public class Castle : MonoBehaviour
     private void UpdateHealthDisplay()
     {
         // Update the health display
-        if (healthValueLabel != null)
+        if (healthProgressBar != null)
         {
-            healthValueLabel.text = "Health: " + currentHealth.ToString();
+            healthProgressBar.value = currentHealth;
+
+            var progressElement = healthProgressBar.Q(className: "unity-progress-bar__progress");
+
+            if (progressElement != null)
+            {
+                Debug.Log("Found Progress Element");
+                if (currentHealth <= (totalHealth * 0.3f))
+                {
+                    progressElement.style.backgroundColor = new StyleColor(Color.red);
+                }
+                else if (currentHealth > (totalHealth * 0.3f) && currentHealth < (totalHealth * 0.6f))
+                {
+                    progressElement.style.backgroundColor = new StyleColor(Color.yellow);
+                }
+                else
+                {
+                    progressElement.style.backgroundColor = new StyleColor(new Color(0.0f, 0.5f, 0.0f)); // Darker green
+                }
+            } else
+            {
+                Debug.Log("Progress Element not found");
+            }
         }
     }
 }

@@ -1,0 +1,8 @@
+#healthProgressBar .unity-progress-bar__background {
+    background-color: black; /* Dark color for empty health */
+}
+
+/* Style the Progress Bar's fill (progress) */
+#healthProgressBar .unity-progress-bar__progress {
+    background-color: green; /* Bright color to represent health */
+}
