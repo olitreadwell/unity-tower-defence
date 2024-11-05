@@ -152,8 +152,12 @@ public class ProjectileTower : MonoBehaviour
             return;
         }
 
+        // Rotate the launcher towards the target
         Quaternion targetRotation = Quaternion.LookRotation(target.position - transform.position);
         launcherModel.rotation = Quaternion.Slerp(launcherModel.rotation, targetRotation, Time.deltaTime * 100f);
-        // Quaternion.LookRotation(target.position - transform.position);
+
+        // Lock the rotation on the x and z axis
+        launcherModel.rotation = Quaternion.Euler(0f, launcherModel.rotation.eulerAngles.y, 0f);
+
     }
 }
