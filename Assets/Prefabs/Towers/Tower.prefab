@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 810547017109510864, guid: 3f072d24a3d49448b958c48e930c8d94, type: 3}
   projectileSpawnPoint: {fileID: 2216440895976964096}
-  intervalBetweenShots: 0.5
+  intervalBetweenShots: 1
   launcherModel: {fileID: 348007306906619454}
   shotEffectPrefab: {fileID: 8350469469667284822, guid: d1dcb2ade17764ea6ad6a429453852d0, type: 3}
 --- !u!1 &1849420588567102829

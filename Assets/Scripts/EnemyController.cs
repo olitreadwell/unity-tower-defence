@@ -38,25 +38,25 @@ public class EnemyController : MonoBehaviour
     {
         if(path == null)
         {
-            // Debug.LogError("Path assigned to EnemyController");
+            Debug.LogError("Path assigned to EnemyController");
             return;
         }
 
         if(castle == null)
         {
-            // Debug.LogError("Castle assigned to EnemyController");
+            Debug.LogError("Castle assigned to EnemyController");
             return;
         }
 
         if(path.points.Length == 0)
         {
-            // Debug.LogError("Path has no points assigned");
+            Debug.LogError("Path has no points assigned");
             return;
         }
 
         if(castle.currentHealth <= 0)
         {
-            // Debug.Log("Castle is destroyed");
+            Debug.Log("Castle is destroyed");
             return;
         }
 
@@ -94,13 +94,13 @@ public class EnemyController : MonoBehaviour
         var distance = Vector3.Distance(transform.position, path.points[currentPointIndex].position);
         if (distance > 0.1f)
         {
-            // Debug.Log("Moving to Path Point Index: " + currentPointIndex);
+            Debug.Log("Moving to Path Point Index: " + currentPointIndex);
             return;
         }
 
         if (currentPointIndex >= path.points.Length - 1)
         {
-            // Debug.Log("Reached the end of the path");
+            Debug.Log("Reached the end of the path");
             hasReachedEnd = true;
 
             return;
@@ -114,9 +114,9 @@ public class EnemyController : MonoBehaviour
 
     public void Setup(Castle newCastle, Path newPath)
     {
-        // Debug.Log("Setting up enemy");
+        Debug.Log("Setting up enemy");
 
-        // Debug.Log("Assigning castle and path to enemy");
+        Debug.Log("Assigning castle and path to enemy");
         castle = newCastle;
         path = newPath;
     }
@@ -130,7 +130,7 @@ public class EnemyController : MonoBehaviour
 
         if(attackTimer > 0)
         {
-            // Debug.Log("Waiting to attack");
+            Debug.Log("Waiting to attack");
             return;
         }
         
