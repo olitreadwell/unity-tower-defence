@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     private Path thePath;
     private int currentPoint;
 
+    private bool reachedEnd = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +24,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveEnemy();
-        CheckDistanceToPathPoint();
+        if(reachedEnd == false)
+        {
+            MoveEnemy();
+            CheckDistanceToPathPoint();
+        }
     }
 
     void MoveEnemy()
@@ -44,6 +49,10 @@ public class EnemyController : MonoBehaviour
             if (currentPoint < thePath.points.Length - 1)
             {
                 currentPoint++;
+            }
+            else
+            {
+                reachedEnd = true;
             }
         }
     }
