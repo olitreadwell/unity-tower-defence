@@ -25,6 +25,11 @@ public class BaseTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        targetsInRange = Physics.OverlapSphere(transform.position, attackRange, targetLayer);
+        FindTargets();
+
+    }
+
+    private void FindTargets() {
+        targetsInRange = Physics.OverlapSphere(transform.position, attackRange, targetLayer);       
     }
 }
