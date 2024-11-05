@@ -35,26 +35,42 @@ public class SimpleEnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targetCastle == null || targetPath == null)
+        if (targetCastle == null)
         {
+            Debug.LogError("Target Castle is not assigned in SimpleEnemySpawner.");
+            return; // Cannot proceed without references
+        }
+
+        if (targetCastle.currentHealth <= 0)
+        {
+            Debug.Log("Castle is destroyed");
+            return; // Cannot proceed if the castle is destroyed
+        }
+
+        if (targetPath == null)
+        {
+            Debug.LogError("Target Path is not assigned in SimpleEnemySpawner.");
             return; // Cannot proceed without references
         }
 
         // Check if we have any enemies left to spawn
-        if (totalEnemiesToSpawn > 0 && targetCastle.currentHealth > 0)
+        if (totalEnemiesToSpawn > 0)
         {
             // Count down the spawn counter
             spawnTimer -= Time.deltaTime;
 
             // Check if it is time to spawn an enemy
-            if (spawnTimer <= 0)
+            if (spawnTimer > 0)
             {
-                // Spawn an enemy
-                SpawnEnemy();
-
-                // Reset the spawn counter
-                spawnTimer = timeBetweenSpawns;
+                Debug.Log("Waiting to spawn an enemy");
+                return; // Not time to spawn an enemy yet
             }
+
+            // Spawn an enemy
+            SpawnEnemy();
+
+            // Reset the spawn counter
+            spawnTimer = timeBetweenSpawns;
         }
     }
 
