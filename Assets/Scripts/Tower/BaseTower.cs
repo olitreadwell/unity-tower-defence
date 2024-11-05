@@ -19,7 +19,10 @@ public class BaseTower : MonoBehaviour
     private float lastTargetCheck;
     // time between checking for new targets
     public float targetCheckRate = 0.5f; // 2 times per second not every frame
-    public Collider currentTarget;
+
+
+    [HideInInspector]
+    public bool enemiesUpdated = false;
 
 
 
@@ -33,6 +36,7 @@ public class BaseTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemiesUpdated = false;
         // count down the time until we check for new targets
         lastTargetCheck -= Time.deltaTime;
         if (lastTargetCheck > 0)
@@ -61,10 +65,8 @@ public class BaseTower : MonoBehaviour
                 // Debug.LogError("EnemyController not found on target");
                 return;
             }
-            // if (enemy != null)
-            // {
             enemiesInRange.Add(enemy);
-            // }
         }
+        enemiesUpdated = true;
     }
 }

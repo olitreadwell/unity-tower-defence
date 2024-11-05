@@ -42,6 +42,13 @@ public class ProjectileTower : MonoBehaviour
     private void FindClosestEnemy()
     {
         // Check if there are any enemies in range
+        if (targetTower?.enemiesUpdated == false)
+        {
+            Debug.Log("No enemies in range");
+            return;
+        }
+
+        // Check if there are any enemies in range
         if (targetTower?.enemiesInRange?.Count <= 0)
         {
             Debug.Log("No enemies in range");
