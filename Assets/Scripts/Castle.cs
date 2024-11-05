@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,7 +6,7 @@ public class Castle : MonoBehaviour
     
     [Header("Health")]
     public float totalHealth = 100;
-    private float currentHealth;
+    public float currentHealth;
     private ProgressBar healthProgressBar;
 
     public Transform[] attackPoints;
