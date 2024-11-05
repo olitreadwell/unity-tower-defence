@@ -13,12 +13,12 @@ public class BaseTower : MonoBehaviour
 
     [Header("Targeting")]
     public LayerMask targetLayer;
-    public Collider[] targetsInRange;
-    public List<EnemyController> enemiesInRange = new List<EnemyController>();
+    private Collider[] targetsInRange;
+    private List<EnemyController> enemiesInRange = new List<EnemyController>();
     // last time we checked for new targets
-    public float lastTargetCheck;
+    private float lastTargetCheck;
     // time between checking for new targets
-    public float targetCheckRate = 0.2f; // 5 times per second not every frame
+    public float targetCheckRate = 0.5f; // 2 times per second not every frame
     public Collider currentTarget;
 
 
