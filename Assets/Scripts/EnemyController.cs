@@ -23,15 +23,25 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         MoveEnemy();
+        CheckDistanceToPathPoint();
     }
 
     void MoveEnemy()
     {
+
         // Rotate the enemy towards the target
         transform.LookAt(thePath.points[currentPoint].position);
 
         
         //  Move the enemy towards the target
         transform.position = Vector3.MoveTowards(transform.position, thePath.points[currentPoint].position, enemyMoveSpeed * Time.deltaTime);
+    }
+
+    void CheckDistanceToPathPoint()
+    {
+        if (Vector3.Distance(transform.position, thePath.points[currentPoint].position) < 0.1f)
+        {
+            currentPoint = currentPoint + 1;
+        }
     }
 }
