@@ -11,6 +11,10 @@ public class SimpleEnemySpawner : MonoBehaviour
     [Header("Spawn Timing")]
     public float timeBetweenSpawns = 1f;
     private float spawnTimer;
+
+    [Header("Target GameObjects")]
+    public Castle targetCastle;
+    public Path targetPath;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +47,7 @@ public class SimpleEnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         // Spawn an enemy
-        Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation).Setup(targetCastle, targetPath);
 
         // Reduce the amount of enemies left to spawn
         totalEnemiesToSpawn--;

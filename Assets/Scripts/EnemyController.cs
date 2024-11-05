@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 
 
     private Path path;
-    private int currentPoint;
+    private int currentPointIndex;
 
     private bool reachedEnd = false;
 
@@ -19,9 +19,15 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        path = FindObjectOfType<Path>();
+        if (path == null) {
 
-        castle = FindObjectOfType<Castle>();
+            path = FindObjectOfType<Path>();
+        }
+
+        if (castle == null) 
+        {
+            castle = FindObjectOfType<Castle>();
+        }
 
         attackCounter = timeBetweenAttacks;
     }
@@ -50,25 +56,30 @@ public class EnemyController : MonoBehaviour
     {
 
         // Rotate the enemy towards the target
-        transform.LookAt(path.points[currentPoint].position);
+        transform.LookAt(path.points[currentPointIndex].position);
 
-        
         //  Move the enemy towards the target
-        transform.position = Vector3.MoveTowards(transform.position, path.points[currentPoint].position, enemyMoveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, path.points[currentPointIndex].position, enemyMoveSpeed * Time.deltaTime);
     }
 
     void CheckDistanceToPathPoint()
     {
-        if (Vector3.Distance(transform.position, path.points[currentPoint].position) < 0.1f)
+        if (Vector3.Distance(transform.position, path.points[currentPointIndex].position) < 0.1f)
         {
-            if (currentPoint < path.points.Length - 1)
+            if (currentPointIndex < path.points.Length - 1)
             {
-                currentPoint++;
+                currentPointIndex++;
             }
             else
             {
                 reachedEnd = true;
             }
         }
+    }
+
+    public void Setup(Castle newCastle, Path newPath)
+    {
+        castle = newCastle;
+        path = newPath;
     }
 }
