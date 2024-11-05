@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,12 +8,15 @@ public class EnemyController : MonoBehaviour
 {
 
     public float enemyMoveSpeed;
-    public Transform target;
+
+
+    private Path thePath;
+    private int currentPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        thePath = FindObjectOfType<Path>();
     }
 
     // Update is called once per frame
@@ -24,9 +28,10 @@ public class EnemyController : MonoBehaviour
     void MoveEnemy()
     {
         // Rotate the enemy towards the target
-        transform.LookAt(target);
+        transform.LookAt(thePath.points[currentPoint].position);
+
         
         //  Move the enemy towards the target
-        transform.position = Vector3.MoveTowards(transform.position, target.position, enemyMoveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, thePath.points[currentPoint].position, enemyMoveSpeed * Time.deltaTime);
     }
 }
