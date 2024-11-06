@@ -3,4 +3,5 @@
     <ui:ProgressBar value="100" title="Health" name="healthProgressBar" style="color: rgb(255, 255, 255); -unity-font-style: bold; top: 90%;" />
     <ui:Button text="Place Tower" parse-escape-sequences="true" display-tooltip-when-elided="true" name="placeTowerButton" style="top: -5%; width: 98px; align-self: center; min-height: 40px; height: 47px; align-items: auto;" />
     <ui:Label tabindex="-1" text="Gold: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="goldAmountLabel" style="width: 12%; background-color: rgb(255, 255, 255); -unity-text-align: upper-left; position: absolute; left: 80%; top: 20px; -unity-font-style: bold; color: rgb(0, 0, 0); -unity-text-outline-width: 0;" />
+    <ui:Button text="Play again?" parse-escape-sequences="true" display-tooltip-when-elided="true" name="playAgainButton" class="play-again-screen" style="height: 90%; margin-top: 6px; margin-right: 10px; width: 80%; align-self: center; justify-content: flex-start; align-items: stretch; top: 0; position: absolute; display: flex; visibility: visible;" />
 </ui:UXML>

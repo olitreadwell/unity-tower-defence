@@ -1,34 +1,42 @@
 using UnityEngine;
-using UnityEngine.UIElements;  // Note: This is for UI Toolkit, not UnityEngine.UI
+using UnityEngine.UIElements;
 
 public class UIController : MonoBehaviour
 {
-    public UIDocument uiDocument;
-    public TowerManager towerManager;
+    public static UIController instance;
 
-    private void OnEnable()
+    public UIDocument uiDocument;
+
+    public Button playAgainButton;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    void Start()
     {
         // Get the root of the UI document
-        VisualElement root = uiDocument.rootVisualElement;
 
-        // Find the button by its name or class
-        Button towerButton = root.Q<Button>("placeTowerButton"); // "towerButton" should match the name in UI Builder
-
-        if (towerButton != null)
+        if (uiDocument == null)
         {
-            // Register the click event using UI Toolkit's syntax
-            // towerButton.clicked += () => towerManager.SelectTower();
+            Debug.Log("UI Document not found");
+            return;
+        }
+
+        var rootVisualElement = uiDocument.rootVisualElement;
+
+        Button playAgainButton = rootVisualElement.Q<Button>("playAgainButton");
+
+        if (playAgainButton != null)
+        {
+            Debug.Log("Found Play Again Button");
+            playAgainButton.style.visibility = Visibility.Hidden;
         }
         else
         {
-            // Debug.LogWarning("Button not found in the UI Document.");
+            Debug.Log("Play Again Button not found");
         }
-    }
-
-    private void OnTowerButtonClick()
-    {
-        // Call a method in TowerManager, or any logic you want to trigger
-        // towerManager.YourMethodHere();
-        // Debug.Log("OnTowerButtonClick");
     }
 }

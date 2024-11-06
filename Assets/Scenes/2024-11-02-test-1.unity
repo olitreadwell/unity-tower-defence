@@ -7433,6 +7433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelActive: 0
+  uiDocument: {fileID: 1424220045}
   enemies: []
 --- !u!1001 &997933080
 PrefabInstance:
@@ -12441,7 +12442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1424220045}
-  towerManager: {fileID: 1951796771}
 --- !u!4 &1843705446
 Transform:
   m_ObjectHideFlags: 0
