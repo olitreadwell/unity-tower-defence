@@ -17,7 +17,7 @@ public class UIController : MonoBehaviour
         if (towerButton != null)
         {
             // Register the click event using UI Toolkit's syntax
-            towerButton.clicked += OnTowerButtonClick;
+            // towerButton.clicked += () => towerManager.SelectTower();
         }
         else
         {
@@ -29,6 +29,6 @@ public class UIController : MonoBehaviour
     {
         // Call a method in TowerManager, or any logic you want to trigger
         // towerManager.YourMethodHere();
-        Debug.Log("Tower button clicked!");
+        Debug.Log("OnTowerButtonClick");
     }
 }
