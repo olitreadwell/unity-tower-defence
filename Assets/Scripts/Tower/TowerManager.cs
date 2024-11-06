@@ -17,6 +17,8 @@ public class TowerManager : MonoBehaviour
     public Transform indicator;
     public bool isPlacingTower = false;
 
+    public LayerMask groundLayer;
+
     void Start()
     {
 
@@ -51,8 +53,19 @@ public class TowerManager : MonoBehaviour
         // Cast a ray from the camera to the mouse position
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        Debug.DrawRay(ray.origin, ray.direction * 200f, Color.red);
+        // Debug.DrawRay(ray.origin, ray.direction * 200f, Color.red);
 
+
+        RaycastHit hit;
+
+        // If the ray hits the ground layer, set the location to the hit point
+        if (Physics.Raycast(ray, out hit, 200f, groundLayer))
+        {
+            // Set the location to the hit point
+            location = hit.point;
+        }
+
+        location.y = 0f;
         return location;
     }
 }

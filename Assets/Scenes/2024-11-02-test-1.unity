@@ -2249,7 +2249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284121782}
   - component: {fileID: 284121783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9114,7 +9114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1257858042
 Transform:
   m_ObjectHideFlags: 0
@@ -12822,6 +12822,9 @@ MonoBehaviour:
   activeTower: {fileID: 6899944359462979762, guid: 53cc45ceec5724f719953679d7c7c9ce, type: 3}
   indicator: {fileID: 1257858042}
   isPlacingTower: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &1951796772
 Transform:
   m_ObjectHideFlags: 0
