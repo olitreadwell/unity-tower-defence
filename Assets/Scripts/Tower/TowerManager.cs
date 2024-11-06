@@ -31,6 +31,14 @@ public class TowerManager : MonoBehaviour
         {
             Vector3 location = GetMouseWorldPosition();
             indicator.position = location;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                isPlacingTower = false;
+                Instantiate(activeTower, location, activeTower.transform.rotation);
+
+                indicator.gameObject.SetActive(false);
+            }
         }
     }
 
