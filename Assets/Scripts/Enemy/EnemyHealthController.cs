@@ -10,7 +10,7 @@ public class EnemyHealthController : MonoBehaviour
     public int enemyBounty = 50;
     void Start()
     {
-
+        LevelManager.instance.enemies.Add(this);
     }
 
     // Update is called once per frame
