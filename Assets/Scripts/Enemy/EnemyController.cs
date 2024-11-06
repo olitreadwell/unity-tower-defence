@@ -54,7 +54,13 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        if(castle.currentHealth <= 0)
+        if (LevelManager.instance.levelActive == false)
+        {
+            // Debug.Log("Level is not active");
+            return;
+        }
+
+        if (castle.currentHealth <= 0)
         {
             // Debug.Log("Castle is destroyed");
             return;
