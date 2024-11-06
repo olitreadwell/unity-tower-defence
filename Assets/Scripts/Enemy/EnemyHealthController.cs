@@ -24,10 +24,13 @@ public class EnemyHealthController : MonoBehaviour
         totalHealth -= damage;
         if (totalHealth <= 0)
         {
+
             Destroy(gameObject);
 
             // Add Gold to the player's total
             GoldManager.instance.AddGold(enemyBounty);
+
+            LevelManager.instance.enemies.Remove(this);
         }
     }
 }

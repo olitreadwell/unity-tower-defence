@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleEnemySpawner : MonoBehaviour
 {
+    public static SimpleEnemySpawner instance;
 
     [Header("Enemy Settings")]    
     public EnemyController enemyToSpawn;
@@ -15,6 +17,8 @@ public class SimpleEnemySpawner : MonoBehaviour
     [Header("Target GameObjects")]
     public Castle targetCastle;
     public Path targetPath;
+
+    private List<EnemyController> spawnedEnemies = new List<EnemyController>();
 
     // Start is called before the first frame update
     void Start()
@@ -54,24 +58,22 @@ public class SimpleEnemySpawner : MonoBehaviour
         }
 
         // Check if we have any enemies left to spawn
-        if (totalEnemiesToSpawn > 0)
+        if (totalEnemiesToSpawn > 0 && targetCastle.currentHealth > 0)
         {
             // Count down the spawn counter
             spawnTimer -= Time.deltaTime;
 
             // Check if it is time to spawn an enemy
-            if (spawnTimer > 0)
+            if (spawnTimer <= 0)
             {
-                // Debug.Log("Waiting to spawn an enemy");
-                return; // Not time to spawn an enemy yet
+                // Spawn an enemy
+                SpawnEnemy();
+
+                // Reset the spawn counter
+                spawnTimer = timeBetweenSpawns;
             }
-
-            // Spawn an enemy
-            SpawnEnemy();
-
-            // Reset the spawn counter
-            spawnTimer = timeBetweenSpawns;
         }
+        spawnedEnemies.RemoveAll(e => e == null);
     }
 
 

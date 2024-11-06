@@ -25,7 +25,7 @@ public class TowerButton : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Button not found in the UI Document.");
+            // Debug.LogWarning("Button not found in the UI Document.");
         }
     }
 
@@ -33,6 +33,6 @@ public class TowerButton : MonoBehaviour
     {
         // Call a method in TowerManager, or any logic you want to trigger
         TowerManager.instance.StartTowerPlacement(towerToPlace);
-        Debug.Log("OnTowerButtonClick");
+        // Debug.Log("OnTowerButtonClick");
     }
 }

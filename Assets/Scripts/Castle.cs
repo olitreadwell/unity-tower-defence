@@ -52,7 +52,7 @@ public class Castle : MonoBehaviour
             }
             else
             {
-                Debug.Log("Gold Label not found");
+                // Debug.Log("Gold Label not found");
             }
         } else
         {
@@ -79,7 +79,7 @@ public class Castle : MonoBehaviour
         }
         else
         {
-            Debug.Log("Gold Label not found");
+            // Debug.Log("Gold Label not found");
         }
     }
 

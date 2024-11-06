@@ -54,15 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8257788422845871023, guid: 4c177e8c51d3c4b8291c3a45a82e3ca2, type: 3}
       propertyPath: attackRange
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8257788422845871023, guid: 4c177e8c51d3c4b8291c3a45a82e3ca2, type: 3}
       propertyPath: attackSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8257788422845871023, guid: 4c177e8c51d3c4b8291c3a45a82e3ca2, type: 3}
       propertyPath: attackDamage
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

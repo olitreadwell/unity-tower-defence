@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 556869559533271708, guid: 252b2912dfe474be8aebeee7b1daab42, type: 3}
   spawnPoint: {fileID: 283626548}
-  totalEnemiesToSpawn: 15
+  totalEnemiesToSpawn: 3
   timeBetweenSpawns: 3
   targetCastle: {fileID: 1135993853}
   targetPath: {fileID: 367631973}
@@ -7433,7 +7433,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelActive: 0
-  castle: {fileID: 0}
   enemies: []
 --- !u!1001 &997933080
 PrefabInstance:
@@ -13811,18 +13810,6 @@ PrefabInstance:
     - target: {fileID: 4181726872879000575, guid: 53cc45ceec5724f719953679d7c7c9ce, type: 3}
       propertyPath: m_Name
       value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6899944359462979762, guid: 53cc45ceec5724f719953679d7c7c9ce, type: 3}
-      propertyPath: cost
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6899944359462979762, guid: 53cc45ceec5724f719953679d7c7c9ce, type: 3}
-      propertyPath: attackSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6899944359462979762, guid: 53cc45ceec5724f719953679d7c7c9ce, type: 3}
-      propertyPath: attackDamage
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

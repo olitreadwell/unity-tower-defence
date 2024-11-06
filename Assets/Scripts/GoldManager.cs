@@ -43,7 +43,7 @@ public class GoldManager : MonoBehaviour
         {
             canAfford = true;
 
-            Debug.Log("Spent " + amount + " Gold. Remaining: " + currentGold);
+            // Debug.Log("Spent " + amount + " Gold. Remaining: " + currentGold);
 
             currentGold -= amount;
         }

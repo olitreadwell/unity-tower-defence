@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Button not found in the UI Document.");
+            // Debug.LogWarning("Button not found in the UI Document.");
         }
     }
 
@@ -29,6 +29,6 @@ public class UIController : MonoBehaviour
     {
         // Call a method in TowerManager, or any logic you want to trigger
         // towerManager.YourMethodHere();
-        Debug.Log("OnTowerButtonClick");
+        // Debug.Log("OnTowerButtonClick");
     }
 }

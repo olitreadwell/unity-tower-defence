@@ -36,19 +36,19 @@ public class TowerManager : MonoBehaviour
             {
                 if (GoldManager.instance == null)
                 {
-                    Debug.LogWarning("GoldManager instance not found");
+                    // Debug.Log("GoldManager instance not found");
                     return;
                 }
 
                 if (activeTower == null)
                 {
-                    Debug.LogWarning("No active tower selected");
+                    // Debug.Log("No active tower selected");
                     return;
                 }
 
                 if (location == Vector3.zero)
                 {
-                    Debug.LogWarning("Invalid location");
+                    // Debug.Log("Invalid location");
                     return;
                 }
 
@@ -68,7 +68,7 @@ public class TowerManager : MonoBehaviour
     {
         activeTower = towerToPlace;
 
-        Debug.Log("Tower Placement Started");
+        // Debug.Log("Tower Placement Started");
 
         isPlacingTower = true;
 
