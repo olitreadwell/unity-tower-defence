@@ -34,10 +34,19 @@ public class TowerManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                isPlacingTower = false;
-                Instantiate(activeTower, location, activeTower.transform.rotation);
+                Debug.Log(MoneyManager.instance.SubtractMoney(activeTower.cost).ToString());
+                // if (MoneyManager.instance.SubtractMoney(activeTower.cost))
+                // {
+                //     Debug.Log("Not enough money");
+                // }
+                // else
+                // {
+                //     Debug.Log("Tower Placed");
+                //     isPlacingTower = false;
+                //     Instantiate(activeTower, location, activeTower.transform.rotation);
 
-                indicator.gameObject.SetActive(false);
+                //     indicator.gameObject.SetActive(false);
+                // }
             }
         }
     }

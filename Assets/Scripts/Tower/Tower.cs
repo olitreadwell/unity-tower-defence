@@ -10,6 +10,8 @@ public class Tower : MonoBehaviour
     public float attackDamage = 10f;
     public float attackSpeed = 1f;
 
+    public int cost = 20;
+
 
     [Header("Targeting")]
     public LayerMask targetLayer;

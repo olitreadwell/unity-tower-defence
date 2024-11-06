@@ -36,11 +36,18 @@ public class MoneyManager : MonoBehaviour
     }
 
     // Create a method to subtract money from the player's total
-    public void SubtractMoney(int amount)
+    public bool SubtractMoney(int amount)
     {
-        bool canAfford = currentMoney >= amount;
+        bool canAfford = false;
+        if (currentMoney >= amount)
+        {
+            canAfford = true;
 
+            Debug.Log("Spent " + amount + " money. Remaining: " + currentMoney);
+        }
         // Subtract the amount from the current money
         currentMoney -= amount;
+
+        return canAfford;
     }
 }
