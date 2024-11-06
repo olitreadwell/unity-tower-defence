@@ -34,4 +34,13 @@ public class MoneyManager : MonoBehaviour
         // Add the amount to the current money
         currentMoney += amount;
     }
+
+    // Create a method to subtract money from the player's total
+    public void SubtractMoney(int amount)
+    {
+        bool canAfford = currentMoney >= amount;
+
+        // Subtract the amount from the current money
+        currentMoney -= amount;
+    }
 }

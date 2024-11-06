@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMoveSpeed: 5
   timeBetweenAttacks: 0.5
-  damagePerAttack: 40
+  damagePerAttack: 5
 --- !u!136 &1612901051230413169
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealth: 50
+  enemyBounty: 50
 --- !u!1001 &2520120359779419869
 PrefabInstance:
   m_ObjectHideFlags: 0

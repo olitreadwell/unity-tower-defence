@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyToSpawn: {fileID: 556869559533271708, guid: 252b2912dfe474be8aebeee7b1daab42, type: 3}
   spawnPoint: {fileID: 283626548}
-  totalEnemiesToSpawn: 10
+  totalEnemiesToSpawn: 15
   timeBetweenSpawns: 2
   targetCastle: {fileID: 1135993853}
   targetPath: {fileID: 367631973}
@@ -1431,6 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealth: 100
+  enemyBounty: 50
 --- !u!1 &168738404
 GameObject:
   m_ObjectHideFlags: 0
@@ -9506,6 +9507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5859954341c0b4a888b9ba295d943dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentMoney: 100
 --- !u!1 &1315113189
 GameObject:
   m_ObjectHideFlags: 0

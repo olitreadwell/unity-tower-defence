@@ -6,6 +6,8 @@ public class EnemyHealthController : MonoBehaviour
 {
     public float totalHealth = 100;
     // Start is called before the first frame update
+
+    public int enemyBounty = 50;
     void Start()
     {
 
@@ -23,6 +25,9 @@ public class EnemyHealthController : MonoBehaviour
         if (totalHealth <= 0)
         {
             Destroy(gameObject);
+
+            // Add money to the player's total
+            MoneyManager.instance.AddMoney(enemyBounty);
         }
     }
 }

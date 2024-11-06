@@ -6,7 +6,7 @@ public class ProjectileTower : MonoBehaviour
 {
     private Quaternion targetRotation;
 
-    private BaseTower targetTower;
+    private Tower targetTower;
 
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
@@ -36,10 +36,10 @@ public class ProjectileTower : MonoBehaviour
 
     private void GetTower()
     {
-        targetTower = GetComponent<BaseTower>();
+        targetTower = GetComponent<Tower>();
         if (targetTower == null)
         {
-            // Debug.LogError("BaseTower component not found on the GameObject.");
+            // Debug.LogError("Tower component not found on the GameObject.");
         }
     }
 

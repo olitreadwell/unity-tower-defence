@@ -11,7 +11,7 @@ public class TowerManager : MonoBehaviour
         instance = this;
     }
 
-    public BaseTower activeTower;
+    public Tower activeTower;
     // Start is called before the first frame update
 
     public Transform indicator;
@@ -42,7 +42,7 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-    public void StartTowerPlacement(BaseTower towerToPlace)
+    public void StartTowerPlacement(Tower towerToPlace)
     {
         activeTower = towerToPlace;
 

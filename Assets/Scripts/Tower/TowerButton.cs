@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class TowerButton : MonoBehaviour
 {
-    public BaseTower towerToPlace;
+    public Tower towerToPlace;
 
     public UIDocument uiDocument;
     // public TowerManager towerManager;
