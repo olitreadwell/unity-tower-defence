@@ -70,6 +70,8 @@ public class LevelManager : MonoBehaviour
                 levelVictory = false;
                 // display play again screen
                 Debug.Log("Castle Destroyed");
+
+                playAgainButton.text = "Castle Destroyed! Play Again?";
                 playAgainButton.style.visibility = Visibility.Visible;
             }
             else if (enemies.Count - 1 == 0 && enemySpawner.totalEnemiesToSpawn == 0)
@@ -80,30 +82,23 @@ public class LevelManager : MonoBehaviour
 
                 // var progressElement = healthProgressBar.Q(className: "unity-progress-bar__progress");
 
+
+                playAgainButton.text = "Next Level";
                 playAgainButton.style.visibility = Visibility.Visible;
                 // load Scene 2
                 UnityEngine.SceneManagement.SceneManager.LoadScene(1);
             }
 
-            // if (playAgainButton.style.visibility == Visibility.Visible)
-            // {
-            //     playAgainButton.clicked += () =>
-            //     {
-            //         Debug.Log("Play Again Button Clicked");
-            //         // reload the scene
-            //         if (levelVictory) { }
-            //         // {
-            //         //     // load Scene 2
-            //         //     UnityEngine.SceneManagement.SceneManager.LoadScene(1);
-            //         // }
-            //         // else
-            //         // {
-            //         //     // load Scene 1
-            //         //     UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-            //         // }
-            //     };
-            // }
-
+            if (playAgainButton.style.visibility == Visibility.Visible && levelVictory == true)
+            {
+                playAgainButton.clicked += () =>
+                {
+                    Debug.Log("Play Again Button Clicked");
+                    // reload the scene
+                    UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+                };
+            }
         }
+
     }
 }
