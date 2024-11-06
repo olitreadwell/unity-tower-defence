@@ -51,6 +51,12 @@ public class SimpleEnemySpawner : MonoBehaviour
             return; // Cannot proceed if the castle is destroyed
         }
 
+        if (LevelManager.instance.levelActive == false)
+        {
+            // Debug.Log("Level is not active");
+            return; // Cannot proceed if the level is not active
+        }
+
         if (targetPath == null)
         {
             // Debug.LogError("Target Path is not assigned in SimpleEnemySpawner.");
@@ -73,7 +79,7 @@ public class SimpleEnemySpawner : MonoBehaviour
                 spawnTimer = timeBetweenSpawns;
             }
         }
-        spawnedEnemies.RemoveAll(e => e == null);
+        // spawnedEnemies.RemoveAll(e => e == null);
     }
 
 

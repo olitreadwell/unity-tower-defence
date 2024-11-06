@@ -31,8 +31,9 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Enemies: " + enemies.Count);
-        Debug.Log("Total Enemies left to spawn: " + enemySpawner.totalEnemiesToSpawn);
+
+        // Debug.Log("Enemies: " + enemies.Count);
+        // Debug.Log("Total Enemies left to spawn: " + enemySpawner.totalEnemiesToSpawn);
         if (castle.currentHealth <= 0)
         {
             levelActive = false;
