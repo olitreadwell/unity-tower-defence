@@ -52,40 +52,58 @@ public class LevelManager : MonoBehaviour
 
 
 
-
-
-
-
-        // Debug.Log("Enemies: " + enemies.Count);
-        // Debug.Log("Total Enemies left to spawn: " + enemySpawner.totalEnemiesToSpawn);
-        if (castle.currentHealth <= 0)
+        if (playAgainButton == null)
         {
-            levelActive = false;
-            // levelVictory = false;
-            // display play again screen
-            Debug.Log("Castle Destroyed");
-            playAgainButton.style.visibility = Visibility.Visible;
+            Debug.Log("Play Again Button not found");
+            return;
         }
-        else if (enemies.Count - 1 == 0 && enemySpawner.totalEnemiesToSpawn == 0)
         {
-            levelActive = false;
-            // levelVictory = true;
-            Debug.Log("Level Complete");
 
-            // var progressElement = healthProgressBar.Q(className: "unity-progress-bar__progress");
 
-            playAgainButton.style.visibility = Visibility.Visible;
-        }
 
-        if (playAgainButton.style.visibility == Visibility.Visible)
-        {
-            playAgainButton.clicked += () =>
+
+            // Debug.Log("Enemies: " + enemies.Count);
+            // Debug.Log("Total Enemies left to spawn: " + enemySpawner.totalEnemiesToSpawn);
+            if (castle.currentHealth <= 0)
             {
-                Debug.Log("Play Again Button Clicked");
-                // reload the scene
-                UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-            };
-        }
+                levelActive = false;
+                levelVictory = false;
+                // display play again screen
+                Debug.Log("Castle Destroyed");
+                playAgainButton.style.visibility = Visibility.Visible;
+            }
+            else if (enemies.Count - 1 == 0 && enemySpawner.totalEnemiesToSpawn == 0)
+            {
+                levelActive = false;
+                levelVictory = true;
+                Debug.Log("Level Complete");
 
+                // var progressElement = healthProgressBar.Q(className: "unity-progress-bar__progress");
+
+                playAgainButton.style.visibility = Visibility.Visible;
+                // load Scene 2
+                UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            }
+
+            // if (playAgainButton.style.visibility == Visibility.Visible)
+            // {
+            //     playAgainButton.clicked += () =>
+            //     {
+            //         Debug.Log("Play Again Button Clicked");
+            //         // reload the scene
+            //         if (levelVictory) { }
+            //         // {
+            //         //     // load Scene 2
+            //         //     UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+            //         // }
+            //         // else
+            //         // {
+            //         //     // load Scene 1
+            //         //     UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            //         // }
+            //     };
+            // }
+
+        }
     }
 }
