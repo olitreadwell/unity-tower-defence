@@ -45,7 +45,14 @@ public class TowerManager : MonoBehaviour
 
     public Vector3 GetMouseWorldPosition()
     {
+        // Initialize the location to zero
         Vector3 location = Vector3.zero;
+
+        // Cast a ray from the camera to the mouse position
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        Debug.DrawRay(ray.origin, ray.direction * 200f, Color.red);
+
         return location;
     }
 }
