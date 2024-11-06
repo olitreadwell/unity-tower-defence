@@ -39,14 +39,14 @@ public class MoneyManager : MonoBehaviour
     public bool SubtractMoney(int amount)
     {
         bool canAfford = false;
-        if (currentMoney >= amount)
+        if (amount <= currentMoney)
         {
             canAfford = true;
 
             Debug.Log("Spent " + amount + " money. Remaining: " + currentMoney);
+
+            currentMoney -= amount;
         }
-        // Subtract the amount from the current money
-        currentMoney -= amount;
 
         return canAfford;
     }
