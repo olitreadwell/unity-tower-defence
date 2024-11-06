@@ -26,8 +26,8 @@ public class EnemyHealthController : MonoBehaviour
         {
             Destroy(gameObject);
 
-            // Add money to the player's total
-            MoneyManager.instance.AddMoney(enemyBounty);
+            // Add Gold to the player's total
+            GoldManager.instance.AddGold(enemyBounty);
         }
     }
 }

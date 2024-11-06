@@ -11,6 +11,7 @@ public class Castle : MonoBehaviour
     public float currentHealth;
     private ProgressBar healthProgressBar;
 
+    private Label goldAmountLabel;
     private UIDocument uiDocument;
 
     public Transform[] attackPoints;
@@ -34,6 +35,7 @@ public class Castle : MonoBehaviour
             var rootVisualElement = uiDocument.rootVisualElement;
 
             healthProgressBar = rootVisualElement.Q<ProgressBar>("healthProgressBar");
+            goldAmountLabel = rootVisualElement.Q<Label>("goldAmountLabel");
 
             if (healthProgressBar != null)
             {
@@ -42,6 +44,15 @@ public class Castle : MonoBehaviour
             } else
             {
                 // Debug.Log("Health Progress Bar not found");
+            }
+            if (goldAmountLabel != null)
+            {
+                // Debug.Log("Found Gold Label");
+                UpdateGoldDisplay();
+            }
+            else
+            {
+                Debug.Log("Gold Label not found");
             }
         } else
         {
@@ -52,7 +63,33 @@ public class Castle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // every 2 seconds update the gold display
+        if (Time.frameCount % 120 == 0)
+        {
+            UpdateGoldDisplay();
+        }
+    }
+
+    private void UpdateGoldDisplay()
+    {
+        // Update the gold display
+        if (goldAmountLabel != null)
+        {
+            goldAmountLabel.text = "Gold: " + GoldManager.instance.currentGold;
+        }
+        else
+        {
+            Debug.Log("Gold Label not found");
+        }
+    }
+
+    public void AddGold(int amount)
+    {
+        // Add the amount to the player's gold
+        GoldManager.instance.AddGold(amount);
+
+        // Update the gold display
+        UpdateGoldDisplay();
     }
 
     public void TakeDamage(float damageToTake)

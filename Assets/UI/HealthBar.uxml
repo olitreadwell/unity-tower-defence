@@ -2,4 +2,5 @@
     <Style src="project://database/Assets/UI/HealthBar.uss?fileID=7433441132597879392&amp;guid=e8788a9bdc9564146911c8501bcc93cd&amp;type=3#HealthBar" />
     <ui:ProgressBar value="100" title="Health" name="healthProgressBar" style="color: rgb(255, 255, 255); -unity-font-style: bold; top: 90%;" />
     <ui:Button text="Place Tower" parse-escape-sequences="true" display-tooltip-when-elided="true" name="placeTowerButton" style="top: -5%; width: 98px; align-self: center; min-height: 40px; height: 47px; align-items: auto;" />
+    <ui:Label tabindex="-1" text="Gold: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="goldAmountLabel" style="width: 12%; background-color: rgb(255, 255, 255); -unity-text-align: upper-left; position: absolute; left: 80%; top: 20px; -unity-font-style: bold; color: rgb(0, 0, 0); -unity-text-outline-width: 0;" />
 </ui:UXML>

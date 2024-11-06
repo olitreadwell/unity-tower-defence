@@ -34,9 +34,9 @@ public class TowerManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (MoneyManager.instance == null)
+                if (GoldManager.instance == null)
                 {
-                    Debug.LogWarning("MoneyManager instance not found");
+                    Debug.LogWarning("GoldManager instance not found");
                     return;
                 }
 
@@ -52,7 +52,7 @@ public class TowerManager : MonoBehaviour
                     return;
                 }
 
-                if (MoneyManager.instance.SubtractMoney(activeTower.cost))
+                if (GoldManager.instance.SubtractGold(activeTower.cost))
                 {
 
                     isPlacingTower = false;
