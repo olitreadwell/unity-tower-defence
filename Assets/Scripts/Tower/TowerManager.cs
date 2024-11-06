@@ -21,6 +21,6 @@ public class TowerManager : MonoBehaviour
     {
         activeTower = towerToPlace;
 
-        Debug.Log("Tower Placement Started");
+        // Debug.Log("Tower Placement Started");
     }
 }

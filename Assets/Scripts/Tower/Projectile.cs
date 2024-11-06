@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
             other.GetComponent<EnemyHealthController>().TakeDamage(projectileDamage);
         }
 
-        Debug.Log("Projectile hit: " + other.name);
+        // Debug.Log("Projectile hit: " + other.name);
         GameObject newShotEffect = Instantiate(shotEffectPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

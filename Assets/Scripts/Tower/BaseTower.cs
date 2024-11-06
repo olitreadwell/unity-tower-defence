@@ -41,7 +41,7 @@ public class BaseTower : MonoBehaviour
         lastTargetCheck -= Time.deltaTime;
         if (lastTargetCheck > 0)
         {
-            Debug.Log("Not time to check for new targets yet");
+            // Debug.Log("Not time to check for new targets yet");
             return;
         }
 
@@ -62,7 +62,7 @@ public class BaseTower : MonoBehaviour
             var enemy = target.GetComponent<EnemyController>();
             if (enemy == null)
             {
-                Debug.LogError("EnemyController not found on target");
+                // Debug.LogError("EnemyController not found on target");
                 return;
             }
             enemiesInRange.Add(enemy);

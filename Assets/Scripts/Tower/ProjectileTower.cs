@@ -39,7 +39,7 @@ public class ProjectileTower : MonoBehaviour
         targetTower = GetComponent<BaseTower>();
         if (targetTower == null)
         {
-            Debug.LogError("BaseTower component not found on the GameObject.");
+            // Debug.LogError("BaseTower component not found on the GameObject.");
         }
     }
 
@@ -48,14 +48,14 @@ public class ProjectileTower : MonoBehaviour
         // Check if there are any enemies in range
         if (targetTower?.enemiesUpdated == false)
         {
-            Debug.Log("No enemies in range");
+            // Debug.Log("No enemies in range");
             return;
         }
 
         // Check if there are any enemies in range
         if (targetTower?.enemiesInRange?.Count <= 0)
         {
-            Debug.Log("No enemies in range");
+            // Debug.Log("No enemies in range");
             return;
         }
 
@@ -68,7 +68,7 @@ public class ProjectileTower : MonoBehaviour
             // Check if the enemy is null
             if (enemy == null)
             {
-                Debug.LogError("EnemyController not found on target");
+                // Debug.LogError("EnemyController not found on target");
                 return;
             }
 
@@ -90,7 +90,7 @@ public class ProjectileTower : MonoBehaviour
 
         if (target == null)
         {
-            Debug.Log("No target found after checking all enemies in range");
+            // Debug.Log("No target found after checking all enemies in range");
         }
     }
     private void ShootProjectile()
@@ -100,7 +100,7 @@ public class ProjectileTower : MonoBehaviour
         // Check if it is time to shoot
         if (shotTimer > 0)
         {
-            Debug.Log("Not time to shoot yet");
+            // Debug.Log("Not time to shoot yet");
             return;
         }
 
@@ -109,14 +109,14 @@ public class ProjectileTower : MonoBehaviour
         // Check if we have a target
         if (target == null)
         {
-            Debug.Log("No target found");
+            // Debug.Log("No target found");
             return;
         }
 
         // Check if there are any enemies in range
         if (targetTower.enemiesInRange.Count == 0)
         {
-            Debug.Log("No enemies in range");
+            // Debug.Log("No enemies in range");
             return;
         }
 
@@ -138,7 +138,7 @@ public class ProjectileTower : MonoBehaviour
             // Check if the enemy is null
             if (enemy == null)
             {
-                Debug.LogError("EnemyController not found on target");
+                // Debug.LogError("EnemyController not found on target");
                 return;
             }
 
@@ -160,7 +160,7 @@ public class ProjectileTower : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.Log("No target found");
+            // Debug.Log("No target found");
             return;
         }
 
