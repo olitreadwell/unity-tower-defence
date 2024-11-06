@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    public Tower activeTower;
+    public BaseTower activeTower;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class TowerManager : MonoBehaviour
 
     }
 
-    public void StartTowerPlacement(Tower towerToPlace)
+    public void StartTowerPlacement(BaseTower towerToPlace)
     {
         activeTower = towerToPlace;
 
